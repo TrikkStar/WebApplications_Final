@@ -1,6 +1,6 @@
 # WebApplications_Final
 
-This project is a joint collaberation between Shelby and myself to build a web based method of compairing sorting algorithms. 
+This project is a joint collaberation between Shelby Babcock and myself to build a web based method of compairing sorting algorithms. 
 
 ##Description
 
