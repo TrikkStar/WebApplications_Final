@@ -7,7 +7,7 @@
 		"strict": 0,
 		"quotes": [1, "double"],
 		"brace-style": [1, "1tbs"],
-		"space-in-brackets": [2, "always"],
+		"space-in-brackets": [1, "never"],
 		"space-in-parens": [2, "never"],
 		"space-after-keywords": [2, "always"],
 		"space-after-function-name": [2, "never"],
@@ -33,7 +33,6 @@
 		"max-params": [2, 4],
 		"no-proto": 2,
 		"no-plusplus": 2,
-		"one-var": 1,
 		"padded-blocks": [1, "never"]
 	}
 }
