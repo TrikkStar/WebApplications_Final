@@ -1,4 +1,5 @@
-var algorithms = {
+
+var Algorithms = {
 	selection: function(arr, type){
 	    var len, cpy, i;
 	    len = arr.length;
@@ -36,3 +37,6 @@ var algorithms = {
 		// to be added later
 	}
 };
+
+Object.preventExtensions(Algorithms);
+module.exports = Algorithms;
