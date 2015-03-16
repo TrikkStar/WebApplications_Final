@@ -39,4 +39,4 @@ var Algorithms = {
 };
 
 Object.preventExtensions(Algorithms);
-module.exports = Algorithms;
+// module.exports = Algorithms;
