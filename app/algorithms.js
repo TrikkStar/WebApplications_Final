@@ -8,9 +8,15 @@ var Algorithms = {
 	        var min, temp, j;
 	        min = i;
 	        for (j = i + 1; j < len; j += 1){
-	            if (cpy[j].localeCompare(cpy[min]) < 0){ // need to add logic for chosing type of data in cpy
-	                min = j;
-	            }
+	        	if (type === "string"){ // need to determine a better way to select type comparison
+		            if (cpy[j].localeCompare(cpy[min]) < 0){
+		                min = j;
+		            }
+		        } else {
+		        	if (cpy[j] < cpy[min]){
+		                min = j;
+		            }
+		        }
 	        }
 	        temp = cpy[i];
 	        cpy[i] = cpy[min];
@@ -25,9 +31,16 @@ var Algorithms = {
 			var u, j;
 			u = cpy[i];
 			j = i - 1;
-			while (j >= 0 && cpy[j].localeCompare(u) > 0){ // add logic for chosing type
-			    cpy[j + 1] = cpy[j];
-			    j -= 1;
+			if (type === "string"){
+				while (j >= 0 && cpy[j].localeCompare(u) > 0){ 
+				    cpy[j + 1] = cpy[j];
+				    j -= 1;
+				}
+			} else {
+				while (j >= 0 && cpy[j] > u){ 
+				    cpy[j + 1] = cpy[j];
+				    j -= 1;
+				}
 			}
 			cpy[j + 1] = u;
 		}
