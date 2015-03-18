@@ -16,12 +16,12 @@ require.config({
 	});
 
 	// All other modules should be called through here
-	require(["jquery", "algorithms", "lib/handlebars-v3.0.0"],
-	function($, Algorithms, Handlebars) {
+	require(["jquery", "algorithms", "lib/handlebars-v3.0.0", "interface"],
+	function($, Algorithms, Handlebars, Interface) {
 		$(function() {
 		console.log("Page loaded!");
 	});
 	console.log("algorithms:", Algorithms);
 	console.log("handlebars:", Handlebars);
-	console.log("Other things here");
+	console.log("interface:", Interface);
 });
