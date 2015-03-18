@@ -29,8 +29,8 @@
 		"no-mixed-spaces-and-tabs": [2, true],
 		"space-unary-ops": 2,
 		"max-depth": [2, 4],
-		"max-len": [2, 105],
-		"max-params": [2, 4],
+		"max-len": [2, 120],
+		"max-params": [2, 6],
 		"no-proto": 2,
 		"no-plusplus": 2,
 		"padded-blocks": [1, "never"]
