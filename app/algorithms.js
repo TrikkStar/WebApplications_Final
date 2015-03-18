@@ -45,6 +45,46 @@ function merge(arrB, arrC, arrA, type){
     }
 }
 
+function partition(arr, left, right, type){
+	var temp, pivot;
+	pivot = arr[(left + right) / 2];
+	while (left <= right){
+		if (type === "string"){
+			while (arr[left].localeCompare(pivot) < 0){
+				left += 1;
+			}
+			while (arr[right].localeCompare(pivot) > 0){
+				right += 1;
+			}
+		} else {
+			while (arr[left] < pivot){
+				left += 1;
+			}
+			while (arr[right] > pivot){
+				right += 1;
+			}
+		}
+		if (left <= right){
+			temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
+			left += 1;
+			right -= 1;
+		}
+	}
+	return left;
+}
+
+function quick(arr, left, right, type){
+	var index = partition(arr, left, right, type);
+	if (left < index - 1){
+		quick(arr, left, index - 1);
+	}
+	if (index < right){
+		quick(arr, index + 1, right);
+	}
+}
+
 var Algorithms = {
 	selection: function(arr, type){
 	    var len, cpy, i;
@@ -54,7 +94,7 @@ var Algorithms = {
 	        var min, temp, j;
 	        min = i;
 	        for (j = i + 1; j < len; j += 1){
-				if (type === "string"){ // need to determine a better way to select type comparison
+				if (type === "string"){ // need to determine a better way to select type comparison, possibly determining type at runtime
 					if (cpy[j].localeCompare(cpy[min]) < 0){
 						min = j;
 					}
@@ -109,6 +149,11 @@ var Algorithms = {
 	        merge(arrB, arrC, arrA, type);
 	    }
 	    return arrA;
+	},
+	quicksort: function(arr, type){
+		var cpy = arr.slice();
+		quick(cpy, 0, cpy.length - 1, type);
+		return cpy;
 	}
 };
 
