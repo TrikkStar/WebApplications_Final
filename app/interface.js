@@ -1,17 +1,36 @@
 
-define(["./algorithms"], function(algorithms){
-	var arr, arr2, controller;
-	arr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
-	arr2 = ["x", "q", "p", "w", "a", "c", "n"];
-	// console.log(Algorithms.selection(arr));
-	// console.log(Algorithms.selection(arr2));
-	// console.log(Algorithms.insertion(arr));
-	// console.log(Algorithms.insertion(arr2));
-	// console.log(Algorithms.mergesort(arr)); mergesort is not functioning properly, it crashes the browser
-	// console.log(Algorithms.quicksort(arr));
-	// console.log(Algorithms.quicksort(arr2));
+define(["./algorithms", "../lib/handlebars-v3.0.0"], function(algorithms, handlebars-v3){
+	var testArr, testArr2, controller;
+	// testArr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
+	// testArr2 = ["x", "q", "p", "w", "a", "c", "n"];
+	// console.log(Algorithms.selection(testArr));
+	// console.log(Algorithms.selection(testArr2));
+	// console.log(Algorithms.insertion(testArr));
+	// console.log(Algorithms.insertion(testArr2));
+	// console.log(Algorithms.mergesort(testArr)); mergesort is not functioning properly, it crashes the browser
+	// console.log(Algorithms.mergesort(testArr2));
+	// console.log(Algorithms.quicksort(testArr));
+	// console.log(Algorithms.quicksort(testArr2));
 	
 	controller = function(){
+		function construct(){
+			// creates HTML that will be shown when the page is loaded
 
+		}
+
+		function numAlgs(){
+			// changes displayed content based on the number of algorithms the user wishes to compare
+
+		}
+
+		function algContent(){
+			// handles selection of an algorithm and display of that algorithms output
+
+		}
+
+
+		// more functions to be added as necessary
 	};
+
+
 });

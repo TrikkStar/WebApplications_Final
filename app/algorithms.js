@@ -144,4 +144,5 @@ Algorithms = {
 };
 
 Object.preventExtensions(Algorithms);
-// module.exports = Algorithms;
+
+algArray = [Algorithms.selection, Algorithms.insertion, Algorithms.mergesort, Algorithms.quicksort];
