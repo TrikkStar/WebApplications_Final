@@ -21,6 +21,7 @@ require.config({
 	function($, Algorithms, Handlebars, Interface) {
 		$(function() {
 		console.log("Page loaded!");
+		Interface;
 	});
 	console.log("algorithms:", Algorithms);
 	console.log("handlebars:", Handlebars);

@@ -1,5 +1,5 @@
 
-define(function(algorithms, handlebars){
+define(function(algorithms, handlebars, jquery){
 	var testArr, testArr2, controller;
 	// testArr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
 	// testArr2 = ["x", "q", "p", "w", "a", "c", "n"];
@@ -12,16 +12,20 @@ define(function(algorithms, handlebars){
 	// console.log(Algorithms.quicksort(testArr));
 	// console.log(Algorithms.quicksort(testArr2));
 	
-	controller = function(){
-		function construct(){
-			// creates HTML that will be shown when the page is loaded
-			var content, html;
-			//content = 
+	controller = function(element){
+		var el = $(element);
 
+		function construct(){
+			// creates HTML that will be shown when the page is loaded, calls numAlgs
+			var content;
+			content = "<h1>Algorithmic Analysis!</h1>";
+
+
+			$(el).after(content);
 		}
 
 		function numAlgs(){
-			// changes displayed content based on the number of algorithms the user wishes to compare
+			// changes displayed content based on the number of algorithms the user wishes to compare, defaults to 1
 
 		}
 
@@ -32,7 +36,9 @@ define(function(algorithms, handlebars){
 
 
 		// more functions to be added as necessary
+
+
+		construct();
 	};
-
-
+	controller($("#main"));
 });
