@@ -1,5 +1,5 @@
 
-define(["./algorithms", "../lib/handlebars-v3.0.0"], function(algorithms, handlebars-v3){
+define(function(algorithms, handlebars){
 	var testArr, testArr2, controller;
 	// testArr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
 	// testArr2 = ["x", "q", "p", "w", "a", "c", "n"];
@@ -15,6 +15,8 @@ define(["./algorithms", "../lib/handlebars-v3.0.0"], function(algorithms, handle
 	controller = function(){
 		function construct(){
 			// creates HTML that will be shown when the page is loaded
+			var content, html;
+			//content = 
 
 		}
 

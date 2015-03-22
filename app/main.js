@@ -8,7 +8,8 @@ require.config({
 	// This way one can call on jquery and libs directly
 	paths: {
 		"lib": "../lib",
-		"jquery": "../lib/jquery-2.1.3"
+		"jquery": "../lib/jquery-2.1.3",
+		"handlebars": "../lib/handlebars-v3.0.0"
 		// or the following to load remotely:
 		// "jquery": "https://code.jquery.com/jquery-2.1.3.min"
 	},
@@ -16,7 +17,7 @@ require.config({
 	});
 
 	// All other modules should be called through here
-	require(["jquery", "algorithms", "lib/handlebars-v3.0.0", "interface"],
+	require(["jquery", "algorithms", "handlebars", "interface"],
 	function($, Algorithms, Handlebars, Interface) {
 		$(function() {
 		console.log("Page loaded!");
