@@ -33,10 +33,9 @@ define(function(algorithms, handlebars, jquery){
 			// changes displayed content based on the number of algorithms the user wishes to compare
 			var value, content;
 			(function(el){
-				// var tmp = $("#quantity").selected();
-				// console.log(tmp);
-				// $("#quantity").val() = $("#quantity").selected();
-			})();
+				// console.log(el);
+				// $("#quantity").val() = el;
+			})($('#quantity').find(":selected").val());
 			value = $("#quantity").val();
 			console.log("made it", value);
 		}
