@@ -20,10 +20,10 @@ require.config({
 	require(["jquery", "algorithms", "handlebars", "interface"],
 	function($, Algorithms, Handlebars, Interface) {
 		$(function() {
-		console.log("Page loaded!");
+		// console.log("Page loaded!");
 		Interface;
 	});
-	console.log("algorithms:", Algorithms);
-	console.log("handlebars:", Handlebars);
-	console.log("interface:", Interface);
+	// console.log("algorithms:", Algorithms);
+	// console.log("handlebars:", Handlebars);
+	// console.log("interface:", Interface);
 });

@@ -17,16 +17,28 @@ define(function(algorithms, handlebars, jquery){
 
 		function construct(){
 			// creates HTML that will be shown when the page is loaded, calls numAlgs
-			var content;
+			var content, i;
 			content = "<h1>Algorithmic Analysis!</h1>";
-
-
+			content += "<div><h3>Number of algorithms to compare</h3><select id=\"quantity\">";
+			content += "<option value=\"1\" selected>1</option>";
+			for (i = 2; i < 5; i += 1){
+				content += "<option value=\"" + i + "\">" + i + "</option>";
+			}
+			content += "</select></div>";
 			$(el).after(content);
+			numAlgs();
 		}
 
 		function numAlgs(){
-			// changes displayed content based on the number of algorithms the user wishes to compare, defaults to 1
-
+			// changes displayed content based on the number of algorithms the user wishes to compare
+			var value, content;
+			(function(el){
+				// var tmp = $("#quantity").selected();
+				// console.log(tmp);
+				// $("#quantity").val() = $("#quantity").selected();
+			})();
+			value = $("#quantity").val();
+			console.log("made it", value);
 		}
 
 		function algContent(){
@@ -34,11 +46,20 @@ define(function(algorithms, handlebars, jquery){
 
 		}
 
+		function execute(){
+			// helper function to be called by algContent, actually runs the sorting algorithms after a submit button has been pressed
+		}
 
 		// more functions to be added as necessary
 
+		function bindEvents(){
+			// responsible for calling functions when their requisit events happen
+			$("#quantity").on("change", numAlgs());
+
+		}
 
 		construct();
+		bindEvents();
 	};
 	controller($("#main"));
 });
