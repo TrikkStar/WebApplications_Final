@@ -17,8 +17,8 @@ require.config({
 	});
 
 	// All other modules should be called through here
-	require(["jquery", "algorithms", "handlebars", "interface"],
-	function($, Algorithms, Handlebars, Interface) {
+	require(["jquery", "algorithms", "handlebars", "interface", "./template/template"],
+	function($, Algorithms, Handlebars, Interface, Template) {
 		$(function() {
 		// console.log("Page loaded!");
 		Interface;
@@ -26,4 +26,5 @@ require.config({
 	// console.log("algorithms:", Algorithms);
 	// console.log("handlebars:", Handlebars);
 	// console.log("interface:", Interface);
+	console.log("template:", Template);
 });
