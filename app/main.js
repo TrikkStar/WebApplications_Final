@@ -8,6 +8,7 @@ require.config({
 	// This way one can call on jquery and libs directly
 	paths: {
 		"lib": "../lib",
+		"text": "../lib/text",
 		"jquery": "../lib/jquery-2.1.3",
 		"handlebars": "../lib/handlebars-v3.0.0",
 		"template": "./template/template"
