@@ -32,10 +32,6 @@ define(function(algorithms, handlebars, jquery){
 		function numAlgs(){
 			// changes displayed content based on the number of algorithms the user wishes to compare
 			var value, content;
-			(function(el){
-				// console.log(el);
-				// $("#quantity").val() = el;
-			})($('#quantity').find(":selected").val());
 			value = $("#quantity").val();
 			console.log("made it", value);
 		}
@@ -53,7 +49,7 @@ define(function(algorithms, handlebars, jquery){
 
 		function bindEvents(){
 			// responsible for calling functions when their requisit events happen
-			$("#quantity").on("change", numAlgs());
+			$("#quantity").on("change", numAlgs);
 
 		}
 
