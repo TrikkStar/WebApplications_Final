@@ -1,6 +1,7 @@
 
 define(function(algorithms, handlebars, jquery, template){
-	var testArr, testArr2, controller;
+	var testArr, testArr2, controller, algArray;
+	algArray = [Algorithms.selection, Algorithms.insertion, Algorithms.mergesort, Algorithms.quicksort];
 	// testArr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
 	// testArr2 = ["x", "q", "p", "w", "a", "c", "n"];
 	// console.log(Algorithms.selection(testArr));
@@ -18,14 +19,15 @@ define(function(algorithms, handlebars, jquery, template){
 		function construct(){
 			// creates HTML that will be shown when the page is loaded by using the template, calls numAlgs
 			var content, i;
-			content = "<h1>Algorithmic Analysis!</h1>";
-			content += "<div><h3>Number of algorithms to compare</h3><select id=\"quantity\">";
-			content += "<option value=\"1\" selected>1</option>";
-			for (i = 2; i < 5; i += 1){
-				content += "<option value=\"" + i + "\">" + i + "</option>";
-			}
-			content += "</select></div>";
+			// content = "<h1>Algorithmic Analysis!</h1>";
+			// content += "<div><h3>Number of algorithms to compare</h3><select id=\"quantity\">";
+			// content += "<option value=\"1\" selected>1</option>";
+			// for (i = 2; i < 5; i += 1){
+			// 	content += "<option value=\"" + i + "\">" + i + "</option>";
+			// }
+			// content += "</select></div>";
 			// need to change all above to: content = template;
+			content = template(algArray);
 			$(el).after(content);
 			numAlgs();
 		}

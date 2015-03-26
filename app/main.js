@@ -28,5 +28,5 @@ require.config({
 	// console.log("algorithms:", Algorithms);
 	// console.log("handlebars:", Handlebars);
 	// console.log("interface:", Interface);
-	console.log("template:", Template);
+	// console.log("template:", Template);
 });

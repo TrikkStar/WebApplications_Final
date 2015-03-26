@@ -1,4 +1,4 @@
-{{! Loaded via template.js }}
+{{!-- Loaded via template.js --}}
 
 <h1>Algorithmic Analysis!</h1>
 <h3>Number of algorithms to compare</h3>
@@ -9,10 +9,10 @@
 		<option value="4">4</option>
 	</select>
 <h3>Select Algorithms</h3>
-	{{! need to determine how to make a variable number of below divs based on value of quantity, possibly by calling algContent() multiple times }}
+	{{!-- need to determine how to make a variable number of below divs based on value of quantity, possibly by calling algContent() multiple times --}}
 	<div id="x">
 		<select id="algorithm_x">
-			{{#each algorithms}}
+			{{#each algArray}}
 				<option value={{@index}}>{{this}}</option>
 		</select>
 	</div>
