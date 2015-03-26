@@ -9,7 +9,8 @@ require.config({
 	paths: {
 		"lib": "../lib",
 		"jquery": "../lib/jquery-2.1.3",
-		"handlebars": "../lib/handlebars-v3.0.0"
+		"handlebars": "../lib/handlebars-v3.0.0",
+		"template": "./template/template"
 		// or the following to load remotely:
 		// "jquery": "https://code.jquery.com/jquery-2.1.3.min"
 	},
@@ -17,7 +18,7 @@ require.config({
 	});
 
 	// All other modules should be called through here
-	require(["jquery", "algorithms", "handlebars", "interface", "./template/template"],
+	require(["jquery", "algorithms", "handlebars", "interface", "template"],
 	function($, Algorithms, Handlebars, Interface, Template) {
 		$(function() {
 		// console.log("Page loaded!");

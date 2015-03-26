@@ -1,5 +1,5 @@
 
-define(function(algorithms, handlebars, jquery){
+define(function(algorithms, handlebars, jquery, template){
 	var testArr, testArr2, controller;
 	// testArr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
 	// testArr2 = ["x", "q", "p", "w", "a", "c", "n"];
@@ -16,7 +16,7 @@ define(function(algorithms, handlebars, jquery){
 		var el = $(element);
 
 		function construct(){
-			// creates HTML that will be shown when the page is loaded, calls numAlgs
+			// creates HTML that will be shown when the page is loaded by using the template, calls numAlgs
 			var content, i;
 			content = "<h1>Algorithmic Analysis!</h1>";
 			content += "<div><h3>Number of algorithms to compare</h3><select id=\"quantity\">";
@@ -25,6 +25,7 @@ define(function(algorithms, handlebars, jquery){
 				content += "<option value=\"" + i + "\">" + i + "</option>";
 			}
 			content += "</select></div>";
+			// need to change all above to: content = template;
 			$(el).after(content);
 			numAlgs();
 		}
@@ -37,12 +38,16 @@ define(function(algorithms, handlebars, jquery){
 		}
 
 		function algContent(){
-			// handles selection of an algorithm and display of that algorithms output
+			// handles selection of an algorithm and display of that algorithms output, may have display handeled by a seperate function
 
 		}
 
 		function execute(){
-			// helper function to be called by algContent, actually runs the sorting algorithms after a submit button has been pressed
+			// actually runs the sorting algorithms after the submit button has been pressed
+		}
+
+		function inputArray(){
+			// function to handle the processing of a given array, or generation of a random array if none is given
 		}
 
 		// more functions to be added as necessary
