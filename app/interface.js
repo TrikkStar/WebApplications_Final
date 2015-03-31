@@ -18,14 +18,6 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 		function construct(){
 			// creates HTML that will be shown when the page is loaded by using the template, calls numAlgs
 			var content, i;
-			// content = "<h1>Algorithmic Analysis!</h1>";
-			// content += "<div><h3>Number of algorithms to compare</h3><select id=\"quantity\">";
-			// content += "<option value=\"1\" selected>1</option>";
-			// for (i = 2; i < 5; i += 1){
-			// 	content += "<option value=\"" + i + "\">" + i + "</option>";
-			// }
-			// content += "</select></div>";
-			// need to change all above to: content = template;
 			content = template(algArray);
 			$(el).after(content);
 			numAlgs();
