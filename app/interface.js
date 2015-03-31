@@ -36,8 +36,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 
 		function construct(){
 			// creates HTML that will be shown when the page is loaded by using the template, calls numAlgs
-			var content, i;
-			content = template(algArray);
+			var content = template(algArray);
 			$(el).after(content);
 			numAlgs();
 		}
