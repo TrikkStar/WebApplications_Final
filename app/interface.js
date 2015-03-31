@@ -1,16 +1,16 @@
 
 define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, handlebars, jquery, template){
 	var testArr, testArr2, controller;
-	// testArr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
-	// testArr2 = ["x", "q", "p", "w", "a", "c", "n"];
-	// console.log(Algorithms.selection(testArr));
-	// console.log(Algorithms.selection(testArr2));
-	// console.log(Algorithms.insertion(testArr));
-	// console.log(Algorithms.insertion(testArr2));
-	// console.log(Algorithms.mergesort(testArr)); mergesort is not functioning properly, it crashes the browser
-	// console.log(Algorithms.mergesort(testArr2));
-	// console.log(Algorithms.quicksort(testArr));
-	// console.log(Algorithms.quicksort(testArr2));
+	testArr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
+	testArr2 = ["x", "q", "p", "w", "a", "c", "n"];
+	// console.log(Algorithms.selection(testArr, "int"));
+	// console.log(Algorithms.selection(testArr2, "string"));
+	// console.log(Algorithms.insertion(testArr, "int"));
+	// console.log(Algorithms.insertion(testArr2, "string"));
+	//console.log(Algorithms.mergesort(testArr, "int")); //mergesort is not functioning properly, it crashes the browser
+	// console.log(Algorithms.mergesort(testArr2, "string"));
+	// console.log(Algorithms.quicksort(testArr, "int"));
+	// console.log(Algorithms.quicksort(testArr2, "string"));
 	
 	controller = function(element){
 		var el = $(element);
@@ -27,7 +27,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 			// changes displayed content based on the number of algorithms the user wishes to compare
 			var value, content;
 			value = $("#quantity").val();
-			console.log("made it", value);
+			//console.log("made it", value);
 		}
 
 		function algContent(){
@@ -48,6 +48,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 		function bindEvents(){
 			// responsible for calling functions when their requisit events happen
 			$("#quantity").on("change", numAlgs);
+			$("#submit").on("click", execute);
 
 		}
 
