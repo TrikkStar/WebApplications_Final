@@ -28,10 +28,11 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 
 	function processInput(str){
 		// process inputed array and converts it into an actual array
+
 	}
 
 	controller = function(element){
-		var el, dataArr, datArrType;
+		var el, dataArr, datArrType, selectedAlgs;
 		el = $(element);
 
 		function construct(){
@@ -45,7 +46,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 			// changes displayed content based on the number of algorithms the user wishes to compare
 			var value, content;
 			value = $("#quantity").val();
-			el = $("#x");
+			console.log(value);
 		}
 
 		function algContent(){
@@ -79,7 +80,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 		function execute(){
 			// actually runs the sorting algorithms after the submit button has been pressed
 			inputArray();
-			console.log(datArrType, dataArr);
+			// console.log(datArrType, dataArr);
 			$("#output").after(dataArr);
 
 		}
