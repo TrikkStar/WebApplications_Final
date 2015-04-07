@@ -41,6 +41,7 @@ function merge(arrB, arrC, arrA, func){
     var i = 0, j = 0, k = 0, p, q, temp;
     p = arrB.length;
     q = arrC.length;
+    console.log(func);
     while (i < p && j < q){
 		if (func(arrB[i], arrC[j]) <= 0){
 			temp = arrB[i];
@@ -67,11 +68,11 @@ function mS(arrA, func){
     if (n > 1){
         arrB = [];
         arrC = [];
-        arrayCopy(arrA, 0, arrB, 0, n / 2);
+        arrayCopy(arrA, 0, arrB, 0, Math.floor(n / 2));
         if (n % 2 === 0){
-            arrayCopy(arrA, n / 2, arrC, 0, n / 2);
+            arrayCopy(arrA, n / 2, arrC, 0, Math.floor(n / 2));
         } else {
-            arrayCopy(arrA, n / 2, arrC, 0, n / 2 + 1);
+            arrayCopy(arrA, n / 2, arrC, 0, Math.floor(n / 2 + 1));
         }
         arrB = mS(arrB, func);
         arrC = mS(arrC, func);
