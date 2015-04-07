@@ -9,7 +9,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 	// console.log(Algorithms.insertion(testArr2, "string"));
 	console.log(Algorithms.mergesort(testArr, "int"));
 	// console.log(Algorithms.mergesort(testArr2, "string"));
-	// console.log(Algorithms.quicksort(testArr, "int"));
+	console.log(Algorithms.quicksort(testArr, "int"));
 	// console.log(Algorithms.quicksort(testArr2, "string"));
 	
 	function randomString(len) { 	
