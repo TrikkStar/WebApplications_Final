@@ -1,16 +1,6 @@
 
 define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, handlebars, jquery, template){
-	var testArr, testArr2, controller;
-	// testArr = [5, 7, 8, 3, 6, 2, 4, 9, 0, 1];
-	// testArr2 = ["x", "q", "p", "w", "a", "c", "n"];
-	// console.log(Algorithms.selection(testArr, "int"));
-	// console.log(Algorithms.selection(testArr2, "string"));
-	// console.log(Algorithms.insertion(testArr, "int"));
-	// console.log(Algorithms.insertion(testArr2, "string"));
-	// console.log(Algorithms.mergesort(testArr, "int"));
-	// console.log(Algorithms.mergesort(testArr2, "string"));
-	// console.log(Algorithms.quicksort(testArr, "int"));
-	// console.log(Algorithms.quicksort(testArr2, "string"));
+	var controller;
 	
 	function randomString(len) { 	
 	 var arr = [], caseRange, i; 	
@@ -111,5 +101,3 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 	controller($("#main"));
 });
 
-
-//789 67 90 53 -7 6 2300 43 12

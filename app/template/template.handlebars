@@ -10,11 +10,12 @@
 <h3>Select Algorithms</h3>
 	<select id="algorithms">
 		{{#each algArray}}
-			<option value={{this}}>{{this}}</option>
+			<option value="{{this}}">{{this}}</option>
 		{{/each}}
 	</select>
 <h3>Enter array of data to be sorted</h3>
 	<p>Accepts strings and numbers, space between individual values</p>
+	<p>If no array is given a random one will be generated</p>
 	<input type="text" id="input" value="">
 	<select id="type">
 		<option value="string" selected>String</option>
