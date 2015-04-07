@@ -28,7 +28,9 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 
 	function processInput(str){
 		// process inputed array and converts it into an actual array
+		var arr = str.split(" ");
 
+		return arr;
 	}
 
 	controller = function(element){
@@ -36,7 +38,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 		el = $(element);
 
 		function construct(){
-			// creates HTML that will be shown when the page is loaded by using the template, calls numAlgs
+			// creates HTML that will be shown when the page is loaded by using the template
 			var content = template(algArray);
 			$(el).after(content);
 			numAlgs();
@@ -50,7 +52,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 		}
 
 		function algContent(){
-			// handles selection of an algorithm and display of that algorithms output, may have display handeled by a seperate function
+			// handles selection of an algorithm 
 
 		}
 
@@ -81,7 +83,8 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 			// actually runs the sorting algorithms after the submit button has been pressed
 			inputArray();
 			// console.log(datArrType, dataArr);
-			$("#output").after(dataArr);
+			//$("#output").after(dataArr);
+			$("#output").after(Algorithms.quicksort(dataArr));
 
 		}
 
@@ -91,7 +94,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 			// responsible for calling functions when their requisit events happen
 			$("#quantity").on("change", numAlgs);
 			$("#submit").on("click", execute);
-
+			$("#algorithms").on("change", algContent);
 		}
 
 		construct();
