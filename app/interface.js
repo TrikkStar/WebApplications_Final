@@ -26,10 +26,15 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
     	return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 
-	function processInput(str){
+	function processInput(str, type){
 		// process inputed array and converts it into an actual array
-		var arr = str.split(" ");
-
+		var arr, i;
+		arr = str.split(" ");
+		if (type === "num"){
+			for (i = 0; i < arr.length; i += 1){
+				arr[i] = parseFloat(arr[i]);
+			}
+		}
 		return arr;
 	}
 
@@ -48,7 +53,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 			// changes displayed content based on the number of algorithms the user wishes to compare
 			var value, content;
 			value = $("#quantity").val();
-			console.log(value);
+			//console.log(value);
 		}
 
 		function algContent(){
@@ -75,17 +80,20 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 					}
 				}
 			} else {
-				dataArr = processInput($("#input").val());
+				datArrType = $("#type").val();
+				dataArr = processInput($("#input").val(), datArrType);
 			}
 		}
 
 		function execute(){
 			// actually runs the sorting algorithms after the submit button has been pressed
+			$("#output").empty();
 			inputArray();
-			// console.log(datArrType, dataArr);
-			//$("#output").after(dataArr);
-			$("#output").after(Algorithms.quicksort(dataArr));
-
+			console.log(datArrType, dataArr);
+			$("#output").append("<p>Quicksort: " + Algorithms.quicksort(dataArr, datArrType) + "</p>");
+			$("#output").append("<p>Mergesort: " + Algorithms.mergesort(dataArr, datArrType) + "</p>");
+			$("#output").append("<p>Insertion: " + Algorithms.insertion(dataArr, datArrType) + "</p>");
+			$("#output").append("<p>Selection: " + Algorithms.selection(dataArr, datArrType) + "</p>");
 		}
 
 		// more functions to be added as necessary
@@ -102,3 +110,6 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 	};
 	controller($("#main"));
 });
+
+
+//789 67 90 53 -7 6 2300 43 12
