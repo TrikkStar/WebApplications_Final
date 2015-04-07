@@ -26,7 +26,7 @@ function comparitor(a, b){
 	}
 }
 
-function arrayCopy(src, srcPos, dest, destPos, len){ // Problem with mergesort is in this function
+function arrayCopy(src, srcPos, dest, destPos, len){
 	var temp;
 	while (len !== 0){
 		temp = src[srcPos];
@@ -69,11 +69,10 @@ function mS(arrA, func){
         arrC = [];
         arrayCopy(arrA, 0, arrB, 0, Math.floor(n / 2));
         if (n % 2 === 0){
-            arrayCopy(arrA, n / 2, arrC, 0, Math.floor(n / 2));
+            arrayCopy(arrA, Math.floor(n / 2), arrC, 0, Math.floor(n / 2));
         } else {
-            arrayCopy(arrA, n / 2, arrC, 0, Math.floor(n / 2 + 1));
+            arrayCopy(arrA, Math.floor(n / 2), arrC, 0, Math.floor(n / 2 + 1));
         }
-        // console.log("A", arrA, "B", arrB, "C", arrC);
         arrB = mS(arrB, func);
         arrC = mS(arrC, func);
         merge(arrB, arrC, arrA, func);
@@ -115,7 +114,7 @@ function quick(arr, left, right, func){
 
 Algorithms = {
 	selection: function(arr, type){
-	    var len, cpy, i, func;
+	    var len, cpy, i, func, min, temp, j;
 		if (arguments.length === 1){
 			func = comparitor(arr[0], arr[1]);
 		} else {
@@ -128,7 +127,6 @@ Algorithms = {
 	    len = arr.length;
 	    cpy = arr.slice();
 	    for (i = 0; i < len - 1; i += 1){
-	        var min, temp, j;
 	        min = i;
 	        for (j = i + 1; j < len; j += 1){
 				if (func(cpy[j], cpy[min]) < 0){
@@ -142,7 +140,7 @@ Algorithms = {
 	    return cpy;
 	},
 	insertion: function(arr, type){
-		var cpy, i, func;
+		var cpy, i, func, u, j;
 		if (arguments.length === 1){
 			func = comparitor(arr[0], arr[1]);
 		} else {
@@ -154,7 +152,6 @@ Algorithms = {
 		}
 		cpy = arr.slice();
 		for (i = 1; i < cpy.length; i += 1){
-			var u, j;
 			u = cpy[i];
 			j = i - 1;
 			while (j >= 0 && func(cpy[j], u) > 0){
@@ -176,9 +173,7 @@ Algorithms = {
 				func = intCompare;
 			}
 		}
-		console.log("arr", arr);
 	    cpy = arr.slice();
-	    console.log("cpy", cpy);
 	    cpy = mS(cpy, func);
 	    return cpy;
 	},
@@ -193,9 +188,7 @@ Algorithms = {
 				func = intCompare;
 			}
 		}
-		console.log("arr", arr);
 		cpy = arr.slice();
-		console.log("cpy", cpy);
 		quick(cpy, 0, cpy.length - 1, func);
 		return cpy;
 	}
