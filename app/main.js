@@ -16,10 +16,10 @@ require.config({
 		// "jquery": "https://code.jquery.com/jquery-2.1.3.min"
 	},
 	waitSeconds: 15
-	});
+});
 
 	// All other modules should be called through here
-	require(["jquery", "algorithms", "handlebars", "interface", "template"],
+require(["jquery", "algorithms", "handlebars", "interface", "template"],
 	function($, Algorithms, Handlebars, Interface, Template) {
 		$(function() {
 		// console.log("Page loaded!");

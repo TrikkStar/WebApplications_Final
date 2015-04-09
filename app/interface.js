@@ -1,5 +1,5 @@
 
-define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, handlebars, jquery, template){
+define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, handlebars, jquery, template){
 	var controller;
 	
 	function randomString(len) { 	
@@ -34,7 +34,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(algorithms, 
 
 		function construct(){
 			// creates HTML that will be shown when the page is loaded by using the template
-			var content = template(algArray);
+			var content = template(Algorithms);
 			$(el).after(content);
 			numAlgs();
 		}
