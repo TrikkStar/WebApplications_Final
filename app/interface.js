@@ -34,7 +34,9 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 
 		function construct(){
 			// creates HTML that will be shown when the page is loaded by using the template
+			console.log("phesants");
 			var content = template(Algorithms);
+			console.log("lumberjacks");
 			$(el).after(content);
 			numAlgs();
 		}

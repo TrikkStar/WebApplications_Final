@@ -114,6 +114,7 @@ define(function(){
 	}
 
 	Algorithms = {
+		//console.log("alagators");
 		selection: function(arr, type){
 		    var len, cpy, i, func, min, temp, j;
 			if (arguments.length === 1){
