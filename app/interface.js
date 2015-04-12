@@ -41,7 +41,6 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 		function algContent(){
 			// handles selection of algorithms to use for sorting
 			selectedAlgs = $("#algorithms").val();
-			console.log(selectedAlgs);
 		}
 
 		function inputArray(){
@@ -69,13 +68,19 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 
 		function execute(){
 			// actually runs the sorting algorithms after the submit button has been pressed
+			var i;
 			$("#output").empty();
 			inputArray();
-			console.log(datArrType, dataArr);
-			$("#output").append("<p>Quicksort: " + Algorithms.quicksort(dataArr, datArrType) + "</p>");
-			$("#output").append("<p>Mergesort: " + Algorithms.mergesort(dataArr, datArrType) + "</p>");
-			$("#output").append("<p>Insertion: " + Algorithms.insertion(dataArr, datArrType) + "</p>");
-			$("#output").append("<p>Selection: " + Algorithms.selection(dataArr, datArrType) + "</p>");
+			if (selectedAlgs === null){
+				$("#output").append("<p>Selection: " + Algorithms.selection(dataArr, datArrType) + "</p>");
+				$("#output").append("<p>Insertion: " + Algorithms.insertion(dataArr, datArrType) + "</p>");
+				$("#output").append("<p>Mergesort: " + Algorithms.mergesort(dataArr, datArrType) + "</p>");
+				$("#output").append("<p>Quicksort: " + Algorithms.quicksort(dataArr, datArrType) + "</p>");
+			} else {
+				for (i = 0; i < selectedAlgs.length; i += 1){
+					$("#output").append("<p>"+ Algorithms.arr[selectedAlgs[i]] + ": " + Algorithms.algArray[selectedAlgs[i]](dataArr, datArrType) + "</p>");
+				}
+			}
 		}
 
 		function bindEvents(){
