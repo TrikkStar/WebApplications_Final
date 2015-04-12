@@ -55,14 +55,13 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 			var rand, i;
 			dataArr = [];
 			if ($("#input").val() === ""){
-				if (Math.random() < 0.5){
-					datArrType = "string";
+				datArrType = $("#type").val();
+				if (datArrType === "string"){
 					for (i = 0; i < 10; i += 1){
 						rand = randomString(randomInt(1, 7));
 						dataArr.push(rand);
 					}
 				} else {
-					datArrType = "int";
 					for (i = 0; i < 10; i += 1){
 						rand = randomInt(1, 100);
 						dataArr.push(rand);
