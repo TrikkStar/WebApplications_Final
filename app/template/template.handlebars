@@ -9,8 +9,8 @@
 	</select>
 <h3>Select Algorithms</h3>
 	<select id="algorithms">
-		{{#each algArray}}
-			<option value="{{this}}">{{this}}</option>
+		{{#each arr}}
+			<option value="{{@index}}">{{this}}</option>
 		{{/each}}
 	</select>
 <h3>Enter array of data to be sorted</h3>

@@ -114,7 +114,6 @@ define(function(){
 	}
 
 	Algorithms = {
-		//console.log("alagators");
 		selection: function(arr, type){
 		    var len, cpy, i, func, min, temp, j;
 			if (arguments.length === 1){
@@ -196,6 +195,7 @@ define(function(){
 		}
 	};
 	Algorithms.algArray = [Algorithms.selection, Algorithms.insertion, Algorithms.mergesort, Algorithms.quicksort];
+	Algorithms.arr = ["Selection", "Insertion", "Mergesort", "Quicksort"];
 	Object.preventExtensions(Algorithms);
 
 return Algorithms;

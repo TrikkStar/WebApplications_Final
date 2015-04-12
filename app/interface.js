@@ -1,19 +1,19 @@
 
 define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, handlebars, jquery, template){
 	var controller;
-	
-	function randomString(len) { 	
-	 var arr = [], caseRange, i; 	
-	 if (len == null) { len = 5; } 	
-	 for (i = 0; i < len; i += 1) { 	
-		 caseRange = [65, 97][Math.floor(Math.random() * 2)]; 	
-		 arr.push(Math.floor(Math.random() * 26) + caseRange); 	
-	 } 	
-	 return String.fromCharCode.apply(String, arr); 	
+
+	function randomString(len) {
+	 var arr = [], caseRange, i;
+	 if (len == null) { len = 5; }
+	 for (i = 0; i < len; i += 1) {
+		 caseRange = [65, 97][Math.floor(Math.random() * 2)];
+		 arr.push(Math.floor(Math.random() * 26) + caseRange);
+	 }
+	 return String.fromCharCode.apply(String, arr);
 	}
 
 	function randomInt(min, max) {
-    	return Math.floor(Math.random() * (max - min + 1)) + min;
+		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 
 	function processInput(str, type){
@@ -34,10 +34,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 
 		function construct(){
 			// creates HTML that will be shown when the page is loaded by using the template
-			console.log("phesants");
-			var content = template(Algorithms);
-			console.log("lumberjacks");
-			$(el).after(content);
+			$(el).after(template(Algorithms));
 			numAlgs();
 		}
 
@@ -49,7 +46,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 		}
 
 		function algContent(){
-			// handles selection of an algorithm 
+			// handles selection of an algorithm
 
 		}
 
@@ -61,13 +58,13 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 				if (Math.random() < 0.5){
 					datArrType = "string";
 					for (i = 0; i < 10; i += 1){
-						rand = randomString(randomInt(1,7));
+						rand = randomString(randomInt(1, 7));
 						dataArr.push(rand);
 					}
 				} else {
 					datArrType = "int";
 					for (i = 0; i < 10; i += 1){
-						rand = randomInt(1,100);
+						rand = randomInt(1, 100);
 						dataArr.push(rand);
 					}
 				}
@@ -102,4 +99,3 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 	};
 	controller($("#main"));
 });
-
