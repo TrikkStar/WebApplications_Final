@@ -81,7 +81,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 				data = Algorithms.algArray[selectedAlgs[i]](dataArr, datArrType);
 				end = performance.now();
 				$("#output").append("<p>" + name + ": " + data + "</p>");
-				$("#output").append("<p>It took " + name + " " + (end - start) +" ms to run.</p>");
+				$("#output").append("<p>It took " + name + " " + (end - start).toFixed(4) +" ms to run.</p>");
 			}
 		}
 
