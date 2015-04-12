@@ -1,14 +1,7 @@
 
 <h1>Algorithmic Analysis!</h1>
-<h3>Number of algorithms to compare</h3>
-	<select id="quantity">
-		<option value="1" selected>1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-	</select>
 <h3>Select Algorithms</h3>
-	<select id="algorithms">
+	<select id="algorithms" multiple="true">
 		{{#each arr}}
 			<option value="{{@index}}">{{this}}</option>
 		{{/each}}

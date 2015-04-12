@@ -35,19 +35,13 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 		function construct(){
 			// creates HTML that will be shown when the page is loaded by using the template
 			$(el).after(template(Algorithms));
-			numAlgs();
-		}
-
-		function numAlgs(){
-			// changes displayed content based on the number of algorithms the user wishes to compare
-			var value, content;
-			value = $("#quantity").val();
-			//console.log(value);
+			algContent();
 		}
 
 		function algContent(){
-			// handles selection of an algorithm
-
+			// handles selection of algorithms to use for sorting
+			selectedAlgs = $("#algorithms").val();
+			console.log(selectedAlgs);
 		}
 
 		function inputArray(){
@@ -84,11 +78,8 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 			$("#output").append("<p>Selection: " + Algorithms.selection(dataArr, datArrType) + "</p>");
 		}
 
-		// more functions to be added as necessary
-
 		function bindEvents(){
 			// responsible for calling functions when their requisit events happen
-			$("#quantity").on("change", numAlgs);
 			$("#submit").on("click", execute);
 			$("#algorithms").on("change", algContent);
 		}
