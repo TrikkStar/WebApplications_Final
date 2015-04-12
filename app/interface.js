@@ -3,13 +3,15 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 	var controller;
 
 	function randomString(len) {
-	 var arr = [], caseRange, i;
-	 if (len == null) { len = 5; }
-	 for (i = 0; i < len; i += 1) {
-		 caseRange = [97, 129][Math.floor(Math.random())];
-		 arr.push(Math.floor(Math.random() * 26) + caseRange);
-	 }
-	 return String.fromCharCode.apply(String, arr);
+		var arr = [], caseRange, i;
+		if (len == null) {
+			len = 5;
+		}
+		for (i = 0; i < len; i += 1) {
+			caseRange = [97, 129][Math.floor(Math.random())];
+			arr.push(Math.floor(Math.random() * 26) + caseRange);
+		}
+		return String.fromCharCode.apply(String, arr);
 	}
 
 	function randomInt(min, max) {
@@ -35,7 +37,6 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 		function construct(){
 			// creates HTML that will be shown when the page is loaded by using the template
 			$(el).after(template(Algorithms));
-			algContent();
 		}
 
 		function algContent(){
@@ -68,7 +69,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 
 		function execute(){
 			// actually runs the sorting algorithms after the submit button has been pressed
-			var i;
+			var i, name, data;
 			$("#output").empty();
 			inputArray();
 			if (selectedAlgs === null){
@@ -78,7 +79,9 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 				$("#output").append("<p>Quicksort: " + Algorithms.quicksort(dataArr, datArrType) + "</p>");
 			} else {
 				for (i = 0; i < selectedAlgs.length; i += 1){
-					$("#output").append("<p>"+ Algorithms.arr[selectedAlgs[i]] + ": " + Algorithms.algArray[selectedAlgs[i]](dataArr, datArrType) + "</p>");
+					name = Algorithms.arr[selectedAlgs[i]];
+					data = Algorithms.algArray[selectedAlgs[i]](dataArr, datArrType);
+					$("#output").append("<p>" + name + ": " + data + "</p>");
 				}
 			}
 		}
