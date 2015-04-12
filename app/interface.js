@@ -6,7 +6,7 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 	 var arr = [], caseRange, i;
 	 if (len == null) { len = 5; }
 	 for (i = 0; i < len; i += 1) {
-		 caseRange = [65, 97][Math.floor(Math.random() * 2)];
+		 caseRange = [97, 129][Math.floor(Math.random())];
 		 arr.push(Math.floor(Math.random() * 26) + caseRange);
 	 }
 	 return String.fromCharCode.apply(String, arr);
