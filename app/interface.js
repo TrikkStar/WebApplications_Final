@@ -69,20 +69,19 @@ define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, 
 
 		function execute(){
 			// actually runs the sorting algorithms after the submit button has been pressed
-			var i, name, data;
+			var i, name, data, start, end;
 			$("#output").empty();
 			inputArray();
-			if (selectedAlgs === null){
-				$("#output").append("<p>Selection: " + Algorithms.selection(dataArr, datArrType) + "</p>");
-				$("#output").append("<p>Insertion: " + Algorithms.insertion(dataArr, datArrType) + "</p>");
-				$("#output").append("<p>Mergesort: " + Algorithms.mergesort(dataArr, datArrType) + "</p>");
-				$("#output").append("<p>Quicksort: " + Algorithms.quicksort(dataArr, datArrType) + "</p>");
-			} else {
-				for (i = 0; i < selectedAlgs.length; i += 1){
-					name = Algorithms.arr[selectedAlgs[i]];
-					data = Algorithms.algArray[selectedAlgs[i]](dataArr, datArrType);
-					$("#output").append("<p>" + name + ": " + data + "</p>");
-				}
+			if (selectedAlgs === undefined){
+				selectedAlgs = ["0", "1", "2", "3"];
+			}
+			for (i = 0; i < selectedAlgs.length; i += 1){
+				name = Algorithms.arr[selectedAlgs[i]];
+				start = performance.now();
+				data = Algorithms.algArray[selectedAlgs[i]](dataArr, datArrType);
+				end = performance.now();
+				$("#output").append("<p>" + name + ": " + data + "</p>");
+				$("#output").append("<p>It took " + name + " " + (end - start) +" ms to run.</p>");
 			}
 		}
 
