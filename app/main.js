@@ -9,7 +9,7 @@ require.config({
 	paths: {
 		"lib": "../lib",
 		"text": "../lib/text",
-		"jquery": "../lib/jquery-2.1.3",
+		"jquery": "../lib/jquery-2.1.3.min",
 		"handlebars": "../lib/handlebars-v3.0.0",
 		"template": "./template/template"
 		// or the following to load remotely:
