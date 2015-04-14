@@ -1,6 +1,6 @@
 # WebApplications_Final
 
-This project is a joint collaberation between Shelby Babcock and myself to build a web based method of compairing sorting algorithms. A link to a usable version of the project can be found [here](http://rawgit.com/TrikkStar/WebApplications_Final/master/index.html). 
+This project was supposed to be a joint collaberation between Shelby Babcock and myself, to build a web based method of compairing sorting algorithms. A link to a usable version of the project can be found [here](http://rawgit.com/TrikkStar/WebApplications_Final/master/index.html). 
 
 ##Description
 
