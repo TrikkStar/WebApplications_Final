@@ -1,212 +1,220 @@
 // file responsible for defining and executing the algorithms
-define(function(){
-	var Algorithms;
+(function(define){
+	define(function(){
+		var Algorithms;
 
-	function stringCompare(a, b){\
-		// function to be used when conparing two strings
-		return a.localeCompare(b);
-	}
-
-	function intCompare(a, b){
-		// function to be used when conparing two numbers
-		if (a < b){
-				return -1;
-			} else if (a === b){
-				return 0;
-			} else {
-				return 1;
-			}
-	}
-
-	function comparitor(a, b){
-		// function used to determine type of data in array if not gien said info
-		if (typeof a === "string" && typeof b === "string"){
-			return stringCompare;
-		} else if (typeof a === "number" && typeof b === "number"){
-			return intCompare;
-		} else if (typeof a !== typeof b) {
-			throw new Error("Units not of same type");
-		} else {
-			throw new Error("Invalid unit type");
+		function stringCompare(a, b){
+			// function to be used when conparing two strings
+			return a.localeCompare(b);
 		}
-	}
 
-	function arrayCopy(src, srcPos, dest, destPos, len){
-		// implimentation of a Java function
-		// it copies a specified length of array data from a given source to a specified destination
-		var temp;
-		while (len !== 0){
-			temp = src[srcPos];
-			dest[destPos] = temp;
-			srcPos += 1;
-			destPos += 1;
-			len -= 1;
-		}
-	}
-
-	function merge(arrB, arrC, arrA, func){
-		// function used in the mergesort algorithm to merge two smaller arrays into a longer sorted one
-	    var i = 0, j = 0, k = 0, p, q, temp;
-	    p = arrB.length;
-	    q = arrC.length;
-	    while (i < p && j < q){
-			if (func(arrB[i], arrC[j]) <= 0){
-				temp = arrB[i];
-				arrA[k] = temp;
-				i += 1;
-			} else {
-				temp = arrC[j];
-				arrA[k] = temp;
-				j += 1;
-			}
-	        k += 1;
-	    }
-	    if (i === p){
-	        arrayCopy(arrC, j, arrA, k, q - j);
-	    } else {
-	        arrayCopy(arrB, i, arrA, k, p - i);
-	    }
-	}
-
-	function mS(arrA, func){
-		// actual mergesort function, used to isolate recursion from mergesort proper
-		var n, arrB, arrC;
-	    n = arrA.length;
-	    if (n > 1){
-	        arrB = [];
-	        arrC = [];
-	        arrayCopy(arrA, 0, arrB, 0, Math.floor(n / 2));
-	        if (n % 2 === 0){
-	            arrayCopy(arrA, Math.floor(n / 2), arrC, 0, Math.floor(n / 2));
-	        } else {
-	            arrayCopy(arrA, Math.floor(n / 2), arrC, 0, Math.floor(n / 2 + 1));
-	        }
-	        arrB = mS(arrB, func);
-	        arrC = mS(arrC, func);
-	        merge(arrB, arrC, arrA, func);
-	    }
-	    return arrA;
-	}
-
-	function partition(arr, left, right, func){
-		// function used by the quicksort algorithm to divide the array in half
-		var temp1, temp2, pivot;
-		pivot = arr[Math.floor((left + right) / 2)];
-		while (left <= right){
-			while (func(arr[left], pivot) < 0){
-				left += 1;
-			}
-			while (func(arr[right], pivot) > 0){
-				right -= 1;
-			}
-			if (left <= right){
-				temp1 = arr[left];
-				temp2 = arr[right];
-				arr[left] = temp2;
-				arr[right] = temp1;
-				left += 1;
-				right -= 1;
-			}
-		}
-		return left;
-	}
-
-	function quick(arr, left, right, func){
-		// actual recursive quicksort function
-		var index = partition(arr, left, right, func);
-		if (left < index - 1){
-			quick(arr, left, index - 1, func);
-		}
-		if (index < right){
-			quick(arr, index + 1, right, func);
-		}
-	}
-
-	Algorithms = {
-		// object that contains the caller functions for the various sorting algorithms
-		selection: function(arr, type){
-		    var len, cpy, i, func, min, temp, j;
-			if (arguments.length === 1){
-				func = comparitor(arr[0], arr[1]);
-			} else {
-				if (type === "string"){
-					func = stringCompare;
+		function intCompare(a, b){
+			// function to be used when conparing two numbers
+			if (a < b){
+					return -1;
+				} else if (a === b){
+					return 0;
 				} else {
-					func = intCompare;
+					return 1;
 				}
+		}
+
+		function comparitor(a, b){
+			// function used to determine type of data in array if not gien said info
+			if (typeof a === "string" && typeof b === "string"){
+				return stringCompare;
+			} else if (typeof a === "number" && typeof b === "number"){
+				return intCompare;
+			} else if (typeof a !== typeof b) {
+				throw new Error("Units not of same type");
+			} else {
+				throw new Error("Invalid unit type");
 			}
-		    len = arr.length;
-		    cpy = arr.slice();
-		    for (i = 0; i < len - 1; i += 1){
-		        min = i;
-		        for (j = i + 1; j < len; j += 1){
-					if (func(cpy[j], cpy[min]) < 0){
-						min = j;
-					}
-		        }
-		        temp = cpy[i];
-		        cpy[i] = cpy[min];
-		        cpy[min] = temp;
+		}
+
+		function arrayCopy(src, srcPos, dest, destPos, len){
+			// implimentation of a Java function
+			// it copies a specified length of array data from a given source to a specified destination
+			var temp;
+			while (len !== 0){
+				temp = src[srcPos];
+				dest[destPos] = temp;
+				srcPos += 1;
+				destPos += 1;
+				len -= 1;
+			}
+		}
+
+		function merge(arrB, arrC, arrA, func){
+			// function used in the mergesort algorithm to merge two smaller arrays into a longer sorted one
+		    var i = 0, j = 0, k = 0, p, q, temp;
+		    p = arrB.length;
+		    q = arrC.length;
+		    while (i < p && j < q){
+				if (func(arrB[i], arrC[j]) <= 0){
+					temp = arrB[i];
+					arrA[k] = temp;
+					i += 1;
+				} else {
+					temp = arrC[j];
+					arrA[k] = temp;
+					j += 1;
+				}
+		        k += 1;
 		    }
-		    return cpy;
-		},
-		insertion: function(arr, type){
-			var cpy, i, func, u, j;
-			if (arguments.length === 1){
-				func = comparitor(arr[0], arr[1]);
-			} else {
-				if (type === "string"){
-					func = stringCompare;
-				} else {
-					func = intCompare;
-				}
-			}
-			cpy = arr.slice();
-			for (i = 1; i < cpy.length; i += 1){
-				u = cpy[i];
-				j = i - 1;
-				while (j >= 0 && func(cpy[j], u) > 0){
-				    cpy[j + 1] = cpy[j];
-				    j -= 1;
-				}
-				cpy[j + 1] = u;
-			}
-			return cpy;
-		},
-		mergesort: function(arr, type){
-		    var cpy, func;
-			if (arguments.length === 1){
-				func = comparitor(arr[0], arr[1]);
-			} else {
-				if (type === "string"){
-					func = stringCompare;
-				} else {
-					func = intCompare;
-				}
-			}
-		    cpy = arr.slice();
-		    cpy = mS(cpy, func);
-		    return cpy;
-		},
-		quicksort: function(arr, type){
-			var cpy, func;
-			if (arguments.length === 1){
-				func = comparitor(arr[0], arr[1]);
-			} else {
-				if (type === "string"){
-					func = stringCompare;
-				} else {
-					func = intCompare;
-				}
-			}
-			cpy = arr.slice();
-			quick(cpy, 0, cpy.length - 1, func);
-			return cpy;
+		    if (i === p){
+		        arrayCopy(arrC, j, arrA, k, q - j);
+		    } else {
+		        arrayCopy(arrB, i, arrA, k, p - i);
+		    }
 		}
-	};
-	Algorithms.algArray = [Algorithms.selection, Algorithms.insertion, Algorithms.mergesort, Algorithms.quicksort];
-	Algorithms.arr = ["Selection", "Insertion", "Mergesort", "Quicksort"];
-	Object.preventExtensions(Algorithms);
 
-return Algorithms;
-});
+		function mS(arrA, func){
+			// actual mergesort function, used to isolate recursion from mergesort proper
+			var n, arrB, arrC;
+		    n = arrA.length;
+		    if (n > 1){
+		        arrB = [];
+		        arrC = [];
+		        arrayCopy(arrA, 0, arrB, 0, Math.floor(n / 2));
+		        if (n % 2 === 0){
+		            arrayCopy(arrA, Math.floor(n / 2), arrC, 0, Math.floor(n / 2));
+		        } else {
+		            arrayCopy(arrA, Math.floor(n / 2), arrC, 0, Math.floor(n / 2 + 1));
+		        }
+		        arrB = mS(arrB, func);
+		        arrC = mS(arrC, func);
+		        merge(arrB, arrC, arrA, func);
+		    }
+		    return arrA;
+		}
+
+		function partition(arr, left, right, func){
+			// function used by the quicksort algorithm to divide the array in half
+			var temp1, temp2, pivot;
+			pivot = arr[Math.floor((left + right) / 2)];
+			while (left <= right){
+				while (func(arr[left], pivot) < 0){
+					left += 1;
+				}
+				while (func(arr[right], pivot) > 0){
+					right -= 1;
+				}
+				if (left <= right){
+					temp1 = arr[left];
+					temp2 = arr[right];
+					arr[left] = temp2;
+					arr[right] = temp1;
+					left += 1;
+					right -= 1;
+				}
+			}
+			return left;
+		}
+
+		function quick(arr, left, right, func){
+			// actual recursive quicksort function
+			var index = partition(arr, left, right, func);
+			if (left < index - 1){
+				quick(arr, left, index - 1, func);
+			}
+			if (index < right){
+				quick(arr, index + 1, right, func);
+			}
+		}
+
+		Algorithms = {
+			// object that contains the caller functions for the various sorting algorithms
+			selection: function(arr, type){
+			    var len, cpy, i, func, min, temp, j;
+				if (arguments.length === 1){
+					func = comparitor(arr[0], arr[1]);
+				} else {
+					if (type === "string"){
+						func = stringCompare;
+					} else {
+						func = intCompare;
+					}
+				}
+			    len = arr.length;
+			    cpy = arr.slice();
+			    for (i = 0; i < len - 1; i += 1){
+			        min = i;
+			        for (j = i + 1; j < len; j += 1){
+						if (func(cpy[j], cpy[min]) < 0){
+							min = j;
+						}
+			        }
+			        temp = cpy[i];
+			        cpy[i] = cpy[min];
+			        cpy[min] = temp;
+			    }
+			    return cpy;
+			},
+			insertion: function(arr, type){
+				var cpy, i, func, u, j;
+				if (arguments.length === 1){
+					func = comparitor(arr[0], arr[1]);
+				} else {
+					if (type === "string"){
+						func = stringCompare;
+					} else {
+						func = intCompare;
+					}
+				}
+				cpy = arr.slice();
+				for (i = 1; i < cpy.length; i += 1){
+					u = cpy[i];
+					j = i - 1;
+					while (j >= 0 && func(cpy[j], u) > 0){
+					    cpy[j + 1] = cpy[j];
+					    j -= 1;
+					}
+					cpy[j + 1] = u;
+				}
+				return cpy;
+			},
+			mergesort: function(arr, type){
+			    var cpy, func;
+				if (arguments.length === 1){
+					func = comparitor(arr[0], arr[1]);
+				} else {
+					if (type === "string"){
+						func = stringCompare;
+					} else {
+						func = intCompare;
+					}
+				}
+			    cpy = arr.slice();
+			    cpy = mS(cpy, func);
+			    return cpy;
+			},
+			quicksort: function(arr, type){
+				var cpy, func;
+				if (arguments.length === 1){
+					func = comparitor(arr[0], arr[1]);
+				} else {
+					if (type === "string"){
+						func = stringCompare;
+					} else {
+						func = intCompare;
+					}
+				}
+				cpy = arr.slice();
+				quick(cpy, 0, cpy.length - 1, func);
+				return cpy;
+			}
+		};
+		Algorithms.algArray = [Algorithms.selection, Algorithms.insertion, Algorithms.mergesort, Algorithms.quicksort];
+		Algorithms.arr = ["Selection", "Insertion", "Mergesort", "Quicksort"];
+		Object.preventExtensions(Algorithms);
+
+		return Algorithms;
+	});
+}(// Help Node out by setting up define.
+     typeof module === "object" && typeof define !== "function"
+    ? function (factory) {
+		module.exports = factory(require, exports, module);
+    }
+    : define
+));

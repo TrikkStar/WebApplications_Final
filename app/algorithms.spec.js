@@ -5,20 +5,20 @@ expect = require("./chai.js").expect;
 Algorithms = require("./algorithms.js");
 
 function randomString(len) {
-		var arr = [], caseRange, i;
-		if (len == null) {
-			len = 5;
-		}
-		for (i = 0; i < len; i += 1) {
-			caseRange = [97, 129][Math.floor(Math.random())];
-			arr.push(Math.floor(Math.random() * 26) + caseRange);
-		}
-		return String.fromCharCode.apply(String, arr);
+	var arr = [], caseRange, i;
+	if (len == null) {
+		len = 5;
 	}
+	for (i = 0; i < len; i += 1) {
+		caseRange = [97, 129][Math.floor(Math.random())];
+		arr.push(Math.floor(Math.random() * 26) + caseRange);
+	}
+	return String.fromCharCode.apply(String, arr);
+}
 
-	function randomInt(min, max) {
-		return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
+function randomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 describe("Your Algorithms object", function(){
 	it("is an object", function(){
