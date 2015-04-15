@@ -1,11 +1,14 @@
+// file responsible for defining and executing the algorithms
 define(function(){
 	var Algorithms;
 
-	function stringCompare(a, b){
+	function stringCompare(a, b){\
+		// function to be used when conparing two strings
 		return a.localeCompare(b);
 	}
 
 	function intCompare(a, b){
+		// function to be used when conparing two numbers
 		if (a < b){
 				return -1;
 			} else if (a === b){
@@ -16,6 +19,7 @@ define(function(){
 	}
 
 	function comparitor(a, b){
+		// function used to determine type of data in array if not gien said info
 		if (typeof a === "string" && typeof b === "string"){
 			return stringCompare;
 		} else if (typeof a === "number" && typeof b === "number"){
@@ -28,6 +32,8 @@ define(function(){
 	}
 
 	function arrayCopy(src, srcPos, dest, destPos, len){
+		// implimentation of a Java function
+		// it copies a specified length of array data from a given source to a specified destination
 		var temp;
 		while (len !== 0){
 			temp = src[srcPos];
@@ -39,6 +45,7 @@ define(function(){
 	}
 
 	function merge(arrB, arrC, arrA, func){
+		// function used in the mergesort algorithm to merge two smaller arrays into a longer sorted one
 	    var i = 0, j = 0, k = 0, p, q, temp;
 	    p = arrB.length;
 	    q = arrC.length;
@@ -62,7 +69,7 @@ define(function(){
 	}
 
 	function mS(arrA, func){
-		// actual mergesort function, used to isolate recursion from mergesort()
+		// actual mergesort function, used to isolate recursion from mergesort proper
 		var n, arrB, arrC;
 	    n = arrA.length;
 	    if (n > 1){
@@ -82,6 +89,7 @@ define(function(){
 	}
 
 	function partition(arr, left, right, func){
+		// function used by the quicksort algorithm to divide the array in half
 		var temp1, temp2, pivot;
 		pivot = arr[Math.floor((left + right) / 2)];
 		while (left <= right){
@@ -104,6 +112,7 @@ define(function(){
 	}
 
 	function quick(arr, left, right, func){
+		// actual recursive quicksort function
 		var index = partition(arr, left, right, func);
 		if (left < index - 1){
 			quick(arr, left, index - 1, func);
@@ -114,6 +123,7 @@ define(function(){
 	}
 
 	Algorithms = {
+		// object that contains the caller functions for the various sorting algorithms
 		selection: function(arr, type){
 		    var len, cpy, i, func, min, temp, j;
 			if (arguments.length === 1){
