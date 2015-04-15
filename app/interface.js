@@ -1,8 +1,11 @@
+// file responsible for adding data to and from index.html
+/*global $ performance*/
 (function(define){
 	define(["algorithms", "handlebars", "jquery", "template"], function(Algorithms, handlebars, jquery, template){
 		var controller;
 
 		function randomString(len) {
+			// creates a random string on length len
 			var arr = [], caseRange, i;
 			if (len == null) {
 				len = 5;
@@ -15,6 +18,7 @@
 		}
 
 		function randomInt(min, max) {
+			// creates a random int between min and max
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 
@@ -31,6 +35,7 @@
 		}
 
 		controller = function(element){
+			// central function that adds and removes information from the page
 			var el, dataArr, datArrType, selectedAlgs;
 			el = $(element);
 
@@ -81,7 +86,7 @@
 					data = Algorithms.algArray[selectedAlgs[i]](dataArr, datArrType);
 					end = performance.now();
 					$("#output").append("<p>" + name + ": " + data + "</p>");
-					$("#output").append("<p>It took " + name + " " + (end - start).toFixed(4) +" ms to run.</p>");
+					$("#output").append("<p>It took " + name + " " + (end - start).toFixed(4) + " ms to run.</p>");
 				}
 			}
 
